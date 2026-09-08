@@ -3,8 +3,10 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config()
 
+
 const connectDB = require("./config/db")
 const authRoutes = require('./routes/authRoutes')
+const protect = require("./middleware/authMiddleware")
 
 const app = express();
 
@@ -18,6 +20,7 @@ app.get("/", (req, res)=> {
         meessage: "DevBoard API is running"
     });
 });
+
 
 connectDB();
 
